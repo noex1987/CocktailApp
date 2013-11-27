@@ -1,23 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Navigation;
+﻿using CocktailApp.mesClasses;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using CocktailApp.mesClasses;
+using Microsoft.Phone.Tasks;
+using System;
+using System.IO;
+using System.IO.IsolatedStorage;
+using System.Windows;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 
 namespace CocktailApp
 {
     public partial class CocktailAdd : PhoneApplicationPage
     {
+        BitmapImage bmp;
         public CocktailAdd()
         {
             InitializeComponent();
             buildCocktailAddBar();
             rdb_facile.IsChecked = true;
+            bmp = new BitmapImage();
         }
         private void buildCocktailAddBar()
         {
@@ -85,6 +87,22 @@ namespace CocktailApp
                 txt_description.Text = "Saisir sa description";
         }
 
+        private void rdb_moyen_Checked(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void rdb_facile_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rdb_difficile_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
        
+
     }
 }
