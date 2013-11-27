@@ -8,16 +8,22 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using CocktailApp.mesClasses;
+using Microsoft.Phone.Tasks;
+using System.Windows.Media.Imaging;
+using System.IO.IsolatedStorage;
+using System.IO;
 
 namespace CocktailApp
 {
     public partial class CocktailAdd : PhoneApplicationPage
     {
+        BitmapImage bmp;
         public CocktailAdd()
         {
             InitializeComponent();
             buildCocktailAddBar();
             rdb_facile.IsChecked = true;
+            bmp = new BitmapImage();
         }
         private void buildCocktailAddBar()
         {
@@ -100,7 +106,48 @@ namespace CocktailApp
 
         }
 
-       
+        private void imageCocktail_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            PhotoChooserTask choisirPhoto = new PhotoChooserTask();
+            choisirPhoto.ShowCamera = true;
+            choisirPhoto.PixelHeight = 150;
+            choisirPhoto.PixelWidth = 150;
+            choisirPhoto.Show();
+            choisirPhoto.Completed += new EventHandler<PhotoResult>(photoChooserTask_Completed);
+        }
+
+        void photoChooserTask_Completed(object sender, PhotoResult e)
+        {
+            if (null != e.ChosenPhoto && e.TaskResult == TaskResult.OK)
+            {
+                var image = new BitmapImage();
+                image.SetSource(e.ChosenPhoto);
+                SaveImageToIsolatedStorage(image, txt_nom.Text + ".jpg");
+            }
+        }
+
+        public void SaveImageToIsolatedStorage(BitmapImage image, string fileName)
+        {
+            if (image != null)
+            {
+                using (var isolatedStorage = IsolatedStorageFile.GetUserStoreForApplication())
+                {
+                    if (!isolatedStorage.DirectoryExists("/Img"))
+                        isolatedStorage.CreateDirectory("/Img");
+                    if (isolatedStorage.FileExists("/Img/" + fileName))
+                        isolatedStorage.DeleteFile("/Img/" + fileName);
+                    var fileStream = isolatedStorage.CreateFile("/Img/" + fileName);
+                    var wb = new WriteableBitmap(image);
+                    wb.SaveJpeg(fileStream, 150, 150, 0, 100);
+                    fileStream.Close();
+                    fileStream = isolatedStorage.OpenFile("/Img/"+fileName, FileMode.Open, FileAccess.Read);
+                    BitmapImage bmp = new BitmapImage();
+                    bmp.SetSource(fileStream);
+                    imageCocktail.Source = bmp;
+                }
+                
+            }
+        }      
 
     }
 }
