@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Navigation;
+﻿using CocktailApp.mesClasses;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using CocktailApp.mesClasses;
 using Microsoft.Phone.Tasks;
-using System.Windows.Media.Imaging;
-using System.IO.IsolatedStorage;
+using System;
 using System.IO;
+using System.IO.IsolatedStorage;
+using System.Windows;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 
 namespace CocktailApp
 {
@@ -106,6 +102,11 @@ namespace CocktailApp
 
         }
 
+        /// <summary>
+        /// Action lors de l'appui sur la photo du cocktail
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void imageCocktail_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             PhotoChooserTask choisirPhoto = new PhotoChooserTask();
@@ -116,6 +117,11 @@ namespace CocktailApp
             choisirPhoto.Completed += new EventHandler<PhotoResult>(photoChooserTask_Completed);
         }
 
+        /// <summary>
+        /// Évènement une fois que la photo est capturée ou choisie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void photoChooserTask_Completed(object sender, PhotoResult e)
         {
             if (null != e.ChosenPhoto && e.TaskResult == TaskResult.OK)
@@ -126,6 +132,11 @@ namespace CocktailApp
             }
         }
 
+        /// <summary>
+        /// Sauvegarder l'image localement et mettre à jour l'aperçu de la page ajout
+        /// </summary>
+        /// <param name="image"></param>
+        /// <param name="fileName"></param>
         public void SaveImageToIsolatedStorage(BitmapImage image, string fileName)
         {
             if (image != null)
