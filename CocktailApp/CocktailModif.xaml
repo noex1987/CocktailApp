@@ -28,8 +28,8 @@
 
         <!--ContentPanel - placez tout contenu supplémentaire ici-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,10" >
-            <TextBox x:Name="txt_nom" HorizontalAlignment="Left" Height="72" Margin="0,10,0,0" TextWrapping="Wrap" Text="{Binding nom}" VerticalAlignment="Top" Width="456" GotFocus="txt_nom_GotFocus" LostFocus="txt_nom_LostFocus"/>
-            <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="186" Margin="0,119,0,0" TextWrapping="Wrap" Text="{Binding description}" VerticalAlignment="Top" Width="456" GotFocus="txt_description_GotFocus" LostFocus="txt_description_LostFocus"/>
+            <TextBox x:Name="txt_nom" HorizontalAlignment="Left" Height="72" Margin="0,10,0,0" TextWrapping="Wrap" Text="{Binding nom}" VerticalAlignment="Top" Width="456" LostFocus="txt_nom_LostFocus"/>
+            <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="186" Margin="0,119,0,0" TextWrapping="Wrap" Text="{Binding description}" VerticalAlignment="Top" Width="456" LostFocus="txt_description_LostFocus"/>
 
             <TextBlock x:Name="txt_error_nom" HorizontalAlignment="Left" Margin="10,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="-4.98,0.151" Width="430" FontStyle="Italic" Foreground="#FFFF0006"/>
             <RadioButton x:Name="rdb_facile" Content="Facile"  HorizontalAlignment="Left" Margin="10,326,0,0" VerticalAlignment="Top"/>

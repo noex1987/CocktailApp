@@ -23,7 +23,7 @@ namespace CocktailApp.mesClasses
             this.description = "Aucune description";
             this.img = "/Assets/img/no-image.png";
             this.difficulte = "Moyen";
-            this.favoris = "";
+            this.favoris = "/Assets/Icons/Dark/nofavs.png";
             this.dateCreation = this.dateMiseAJour = new DateTime();
         }
         public Cocktails(string p_nom, string p_description, string p_img,string p_difficulte, DateTime p_date)
@@ -32,13 +32,26 @@ namespace CocktailApp.mesClasses
             this.description = p_description;
             this.img = p_img;
             this.difficulte = p_difficulte;
-            this.favoris = "";
+            this.favoris = "/Assets/Icons/Dark/nofavs.png";
             this.dateCreation = this.dateMiseAJour = p_date;
         }
 
         public void ModDate()
         {
             this.dateMiseAJour = new DateTime();
+        }
+
+        public void ChangeFav()
+        {
+            if ( this.favoris == "/Assets/Icons/Dark/nofavs.png" )
+            {
+                this.favoris = "/Assets/Icons/Dark/favs.png";
+            }
+            else
+            {
+                this.favoris = "/Assets/Icons/Dark/nofavs.png";
+            }
+            
         }
     }
 }

@@ -28,22 +28,31 @@
         </StackPanel>
         <!--ContentPanel - placez tout contenu supplémentaire ici-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <ListBox x:Name="listeDeCocktails" SelectionChanged="listeDeCocktails_SelectionChanged" >
+            <ListBox x:Name="listeDeCocktails">
                 <ListBox.ItemTemplate >
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal" Height="80" Width="400">
-                            <Image Source="{Binding img}" Width="100" Height="80"/>
-                            <StackPanel Orientation="Vertical" Height="80">
-                                <StackPanel Orientation="Horizontal" Height="40">
-                                    <TextBlock Width="80" Height="40" Text="Nom :"/>
-                                    <TextBlock Width="200" Height="40" Text="{Binding nom}"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Height="40">
-                                    <Image Width="80" Height="40" Source="{Binding favoris}"/>
-                                    <TextBlock Width="200" Height="40" Text="{Binding difficulte}"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="85*"/>
+                                <ColumnDefinition Width="15*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Tag="{Binding id}" Orientation="Horizontal" Height="80" Width="400" Tap="StackPanel_Tap">
+                                <Image Source="{Binding img}" Width="100" Height="80"/>
+                                <StackPanel Orientation="Vertical" Height="80">
+                                    <StackPanel Orientation="Horizontal" Height="40">
+                                        <TextBlock Width="80" Height="40" Text="Nom :"/>
+                                        <TextBlock Width="200" Height="40" Text="{Binding nom}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Height="40">
+                                        
+                                        <TextBlock Width="200" Height="40" Text="{Binding difficulte}"/>
+                                    </StackPanel>
                                 </StackPanel>
                             </StackPanel>
-                        </StackPanel>
+                            <Grid Grid.Column="1">
+                                <Image Source="{Binding favoris}" Tag="{Binding id}"  VerticalAlignment="Top" HorizontalAlignment="Left" Tap="Fav_Img_Tap"/>
+                            </Grid>
+                        </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>

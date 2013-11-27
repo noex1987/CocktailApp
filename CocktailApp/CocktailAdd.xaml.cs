@@ -85,22 +85,6 @@ namespace CocktailApp
                 txt_description.Text = "Saisir sa description";
         }
 
-        private void rdb_moyen_Checked(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void rdb_facile_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void rdb_difficile_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
        
-
     }
 }

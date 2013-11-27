@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using CocktailApp.Resources;
 using CocktailApp.mesClasses;
+using System.Windows.Media.Imaging;
 
 namespace CocktailApp
 {
@@ -49,15 +50,32 @@ namespace CocktailApp
             ApplicationBar.Buttons.Add(btnSea);
         }
 
-        private void listeDeCocktails_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Cocktails selectedItemData = (sender as ListBox).SelectedItem as Cocktails;
-            if (selectedItemData != null)
-                NavigationService.Navigate(new Uri(String.Format("/CocktailView.xaml?parameter={0}", selectedItemData.id), UriKind.Relative));
-        }
         private void btnAdd_Click(Object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/CocktailAdd.xaml", UriKind.Relative));
+        }
+
+
+        private void Fav_Img_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            int id = (int)(sender as Image).Tag;
+            CocktailsRepository repository = new CocktailsRepository();
+
+            Cocktails targetedItemData = repository.Find(id);          
+            targetedItemData.ChangeFav();
+            (sender as Image).Source = new BitmapImage(new Uri (targetedItemData.favoris,UriKind.Relative));
+            
+        }
+
+        private void StackPanel_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            int id = (int)(sender as StackPanel).Tag;
+            CocktailsRepository repository = new CocktailsRepository();
+
+            Cocktails selectedItemData = repository.Find(id);
+            if (selectedItemData != null)
+                NavigationService.Navigate(new Uri(String.Format("/CocktailView.xaml?parameter={0}", selectedItemData.id), UriKind.Relative));
+                    
         }
 
         

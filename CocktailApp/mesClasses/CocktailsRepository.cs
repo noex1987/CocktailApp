@@ -29,11 +29,13 @@ namespace CocktailApp.mesClasses
             Cocktails MandaShot = new Cocktails("Manda Shot");
             MandaShot.img = "/Assets/Img/cocktail_a_manda_shot.png";
             MandaShot.difficulte = "Moyen";
+            MandaShot.favoris = "/Assets/Icons/Dark/nofavs.png";
             MandaShot.description = "Un délicieux cocktail dont je ne connais pas du tout la recette ! Pratique pour faire une description";
             MandaShot.id = 2;
 
             Cocktails DaiquiriGlace = new Cocktails("Daiquiri Glace");
             DaiquiriGlace.img = "/Assets/Img/cocktail_daiquiri_glace.png";
+            DaiquiriGlace.favoris = "/Assets/Icons/Dark/nofavs.png";
             DaiquiriGlace.difficulte = "Novice";
             DaiquiriGlace.id = 3;
 
@@ -45,21 +47,25 @@ namespace CocktailApp.mesClasses
 
             Cocktails CranberryCollins = new Cocktails("Cranberry Collins");
             CranberryCollins.img = "/Assets/Img/cocktail_cranberry_collins.png";
+            CranberryCollins.favoris = "/Assets/Icons/Dark/nofavs.png";
             CranberryCollins.difficulte = "Difficile";
             CranberryCollins.id = 5;
 
             Cocktails FrenchMartini = new Cocktails("French Martini");
             FrenchMartini.img = "/Assets/Img/cocktail_french_martini.png";
+            FrenchMartini.favoris = "/Assets/Icons/Dark/nofavs.png";
             FrenchMartini.difficulte = "Novice";
             FrenchMartini.id = 6;
 
             Cocktails TequilaSlammer = new Cocktails("Tequila Slammer");
             TequilaSlammer.img = "/Assets/Img/cocktail_tequila_slammer.png";
+            TequilaSlammer.favoris = "/Assets/Icons/Dark/nofavs.png";
             TequilaSlammer.difficulte = "Moyen";
             TequilaSlammer.id = 7;
 
             Cocktails PinkLady = new Cocktails("PinkLady");
             PinkLady.img = "/Assets/Img/cocktail_pink_lady.png";
+            PinkLady.favoris = "/Assets/Icons/Dark/nofavs.png";
             PinkLady.difficulte = "Difficile";
             PinkLady.id = 8;
 

@@ -82,15 +82,6 @@ namespace CocktailApp
             NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
 
-        private void txt_nom_GotFocus(object sender, RoutedEventArgs e)
-        {
-                txt_nom.Text = "";
-        }
-
-        private void txt_description_GotFocus(object sender, RoutedEventArgs e)
-        {
-                txt_description.Text = "";
-        }
 
         private void txt_nom_LostFocus(object sender, RoutedEventArgs e)
         {
