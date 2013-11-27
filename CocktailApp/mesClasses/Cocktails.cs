@@ -24,7 +24,7 @@ namespace CocktailApp.mesClasses
             this.img = "/Assets/img/no-image.png";
             this.difficulte = "Novice";
             this.favoris = "";
-            this.dateCreation = new DateTime();
+            this.dateCreation = this.dateMiseAJour = new DateTime();
         }
         public Cocktails(string p_nom, string p_description, string p_img,string p_difficulte, DateTime p_date)
         {
