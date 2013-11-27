@@ -96,6 +96,9 @@
     <Compile Include="CocktailAdd.xaml.cs">
       <DependentUpon>CocktailAdd.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CocktailModif.xaml.cs">
+      <DependentUpon>CocktailModif.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -118,6 +121,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="CocktailAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CocktailModif.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

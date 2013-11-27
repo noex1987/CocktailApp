@@ -90,6 +90,19 @@ namespace CocktailApp.mesClasses
                 CocktailsList.Remove(leCocktail);
         }
 
+        public static void Edit(Cocktails unCocktail, string Nom, string Desc, string Img, string Difficulte)
+        {
+            if (CocktailsList.Contains(unCocktail))
+            {
+                unCocktail.nom = Nom;
+                unCocktail.description = Desc;
+                unCocktail.img = Img;
+                unCocktail.difficulte = Difficulte;
+                unCocktail.ModDate();
+
+            }
+        }
+
         public List<Cocktails> List()
         {
             return CocktailsList;

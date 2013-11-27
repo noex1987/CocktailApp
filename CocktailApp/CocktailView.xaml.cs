@@ -60,7 +60,7 @@ namespace CocktailApp
 
         private void btnEdit_Click(Object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri(String.Format("/CocktailAdd.xaml?parameter={0}", this.cocktail.id), UriKind.Relative));
+            NavigationService.Navigate(new Uri(String.Format("/CocktailModif.xaml?parameter={0}", this.cocktail.id), UriKind.Relative));
         }
         private void btnDelete_Click(Object sender, EventArgs e)
         {

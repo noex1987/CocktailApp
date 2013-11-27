@@ -1,0 +1,41 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="CocktailApp.CocktailModif"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot est la grille racine où tout le contenu de la page est placé-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contient le nom de l'application et le titre de la page-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="COCKTAILAPP" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="{Binding nom}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle2Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - placez tout contenu supplémentaire ici-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,10" >
+            <TextBox x:Name="txt_nom" HorizontalAlignment="Left" Height="72" Margin="0,10,0,0" TextWrapping="Wrap" Text="{Binding nom}" VerticalAlignment="Top" Width="456" GotFocus="txt_nom_GotFocus" LostFocus="txt_nom_LostFocus"/>
+            <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="186" Margin="0,119,0,0" TextWrapping="Wrap" Text="{Binding description}" VerticalAlignment="Top" Width="456" GotFocus="txt_description_GotFocus" LostFocus="txt_description_LostFocus"/>
+
+            <TextBlock x:Name="txt_error_nom" HorizontalAlignment="Left" Margin="10,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="-4.98,0.151" Width="430" FontStyle="Italic" Foreground="#FFFF0006"/>
+            <RadioButton x:Name="rdb_facile" Content="Facile"  HorizontalAlignment="Left" Margin="10,326,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="rdb_moyen" Content="Moyen" HorizontalAlignment="Left" Margin="139,326,0,0" VerticalAlignment="Top" />
+            <RadioButton x:Name="rdb_difficile" Content="Difficile" HorizontalAlignment="Left" Margin="268,326,0,0" VerticalAlignment="Top" />
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

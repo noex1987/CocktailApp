@@ -22,7 +22,7 @@ namespace CocktailApp.mesClasses
             this.nom = p_nom;
             this.description = "Aucune description";
             this.img = "/Assets/img/no-image.png";
-            this.difficulte = "Novice";
+            this.difficulte = "Moyen";
             this.favoris = "";
             this.dateCreation = this.dateMiseAJour = new DateTime();
         }
@@ -36,6 +36,9 @@ namespace CocktailApp.mesClasses
             this.dateCreation = this.dateMiseAJour = p_date;
         }
 
-       
+        public void ModDate()
+        {
+            this.dateMiseAJour = new DateTime();
+        }
     }
 }
