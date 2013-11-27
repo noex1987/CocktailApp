@@ -32,9 +32,9 @@
             <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="186" Margin="0,119,0,0" TextWrapping="Wrap" Text="{Binding description}" VerticalAlignment="Top" Width="456" LostFocus="txt_description_LostFocus"/>
 
             <TextBlock x:Name="txt_error_nom" HorizontalAlignment="Left" Margin="10,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="-4.98,0.151" Width="430" FontStyle="Italic" Foreground="#FFFF0006"/>
-            <RadioButton x:Name="rdb_facile" Content="Facile"  HorizontalAlignment="Left" Margin="10,326,0,0" VerticalAlignment="Top"/>
-            <RadioButton x:Name="rdb_moyen" Content="Moyen" HorizontalAlignment="Left" Margin="139,326,0,0" VerticalAlignment="Top" />
-            <RadioButton x:Name="rdb_difficile" Content="Difficile" HorizontalAlignment="Left" Margin="268,326,0,0" VerticalAlignment="Top" />
+            <RadioButton x:Name="rdb_facile" Content="Facile"  HorizontalAlignment="Left" Margin="39,514,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="rdb_moyen" Content="Moyen" HorizontalAlignment="Left" Margin="168,514,0,0" VerticalAlignment="Top" />
+            <RadioButton x:Name="rdb_difficile" Content="Difficile" HorizontalAlignment="Left" Margin="297,514,0,0" VerticalAlignment="Top" />
         </Grid>
     </Grid>
 
