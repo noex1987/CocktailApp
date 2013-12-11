@@ -21,32 +21,37 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contient le nom de l'application et le titre de la page-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="COCKTAILAPP" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="{Binding nom}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle2Style}"/>
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,10">
+            <TextBlock Text="Cocktail-App'" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="Modification" Margin="9, 0,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#FFF75252"/>
         </StackPanel>
 
         <!--ContentPanel - placez tout contenu supplémentaire ici-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,10" >
             <ScrollViewer>
                 <StackPanel>
-                    <TextBlock x:Name="desc_txt_nom" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Nom du cocktail :" Foreground="White" />
+                    <TextBlock x:Name="desc_txt_nom" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Nom du cocktail :" />
                     <TextBox x:Name="txt_nom" HorizontalAlignment="Left" Height="80" Margin="0,0,0,0" TextWrapping="Wrap" Text="{Binding nom}" VerticalAlignment="Top" Width="456" LostFocus="txt_nom_LostFocus"/>
                     <TextBlock x:Name="txt_error_nom" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="-4.98,0.151" Width="430" FontStyle="Italic" Foreground="#FFFF0006"/>
 
-                    <TextBlock x:Name="desc_txt_comm" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Commentaire personnel :" Foreground="White" />
+                    <StackPanel x:Name="Panel_Img" Margin="0,0,0,40" Tap="Panel_Img_Tap">
+                        <TextBlock x:Name="desc_imageCocktail" TextAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" TextWrapping="Wrap" Text="Touchez pour choisir une image à partir de votre téléphone" />
+                        <Image Name="imageCocktail" Height="200" Source="{Binding img}" HorizontalAlignment="Center"  Margin="0,20,0,0"/>
+                    </StackPanel>
+                    
+                    <TextBlock x:Name="desc_txt_comm" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Commentaire personnel :" />
                     <TextBox x:Name="txt_comm" HorizontalAlignment="Left" Margin="0,-5,0,0" TextWrapping="Wrap" Text="{Binding commentaire}" VerticalAlignment="Top" Width="456" Height="120"/>
 
-                    <TextBlock x:Name="desc_txt_real" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Réaliser dans..." Foreground="White" />
+                    <TextBlock x:Name="desc_txt_real" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Réaliser dans..."  />
                     <TextBox x:Name="txt_real" HorizontalAlignment="Left" Margin="0,-5,0,0" TextWrapping="Wrap" Text="{Binding realisation}" VerticalAlignment="Top" Width="456"/>
 
-                    <TextBlock x:Name="desc_txt_desc" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Recette :" Foreground="White" />
+                    <TextBlock x:Name="desc_txt_desc" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Recette :"/>
                     <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="350" Margin="0,-5,0,0" TextWrapping="Wrap" Text="{Binding description}" VerticalAlignment="Top" Width="456" LostFocus="txt_description_LostFocus"/>
 
-                    <TextBlock x:Name="desc_txt_serv" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Servir dans..." Foreground="White" />
+                    <TextBlock x:Name="desc_txt_serv" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Servir dans..." />
                     <TextBox x:Name="txt_serv" HorizontalAlignment="Left" Margin="0,-5,0,0" TextWrapping="Wrap" Text="{Binding servirDans}" VerticalAlignment="Top" Width="456"/>
 
-                    <TextBlock x:Name="desc_txt_deco" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Décoration :" Foreground="White" />
+                    <TextBlock x:Name="desc_txt_deco" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Décoration :" />
                     <TextBox x:Name="txt_deco" HorizontalAlignment="Left" Margin="0,-5,0,0" TextWrapping="Wrap" Text="{Binding deco}" VerticalAlignment="Top" Width="456" />
 
                     <StackPanel Orientation="Horizontal" >

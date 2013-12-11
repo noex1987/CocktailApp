@@ -72,51 +72,79 @@ namespace CocktailApp
             NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
 
+        private void txt_comm_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txt_comm.Text == "Saisissez un commentaire personnel")
+                txt_comm.Text = "";
+        }
+        private void txt_comm_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txt_comm.Text == "")
+                txt_comm.Text = "Saisissez un commentaire personnel";
+        }
+
+        private void txt_real_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txt_real.Text == "Où faut-il préparer le cocktail ?")
+                txt_real.Text = "";
+        }
+        private void txt_real_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txt_real.Text == "")
+                txt_real.Text = "Où faut-il préparer le cocktail ?";
+        }
+
+        private void txt_serv_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txt_serv.Text == "Où faut-il servir le cocktail ?")
+                txt_serv.Text = "";
+        }
+        private void txt_serv_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txt_serv.Text == "")
+                txt_serv.Text = "Où faut-il servir le cocktail ?";
+        }
+
+        private void txt_deco_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txt_deco.Text == "Décrivez la décoration à ajouter.")
+                txt_deco.Text = "";
+        }
+        private void txt_deco_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txt_deco.Text == "")
+                txt_deco.Text = "Décrivez la décoration à ajouter.";
+        }
+
         private void txt_nom_GotFocus(object sender, RoutedEventArgs e)
         {
             if (txt_nom.Text == "Saisissez le nom de la recette")
                 txt_nom.Text = "";
         }
-
-        private void txt_description_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (txt_description.Text == "Saisir sa description")
-                txt_description.Text = "";
-        }
-
         private void txt_nom_LostFocus(object sender, RoutedEventArgs e)
         {
             if (txt_nom.Text == "")
                 txt_nom.Text = "Saisissez le nom de la recette";
         }
 
+        private void txt_description_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txt_description.Text == "Saisissez la totalité de la recette.")
+                txt_description.Text = "";
+        }
         private void txt_description_LostFocus(object sender, RoutedEventArgs e)
         {
             if (txt_description.Text == "")
-                txt_description.Text = "Saisir sa description";
+                txt_description.Text = "Saisissez la totalité de la recette.";
         }
 
-        private void rdb_moyen_Checked(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void rdb_facile_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void rdb_difficile_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         /// <summary>
         /// Action lors de l'appui sur la photo du cocktail
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void imageCocktail_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Panel_Img_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             PhotoChooserTask choisirPhoto = new PhotoChooserTask();
             choisirPhoto.ShowCamera = true;
@@ -168,6 +196,11 @@ namespace CocktailApp
                 }
             }
         }      
+
+        
+
+        
+          
 
     }
 }

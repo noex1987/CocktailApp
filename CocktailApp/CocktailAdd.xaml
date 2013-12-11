@@ -21,21 +21,48 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contient le nom de l'application et le titre de la page-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="COCKTAILAPP" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="Nouvelle recette" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle2Style}"/>
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,10">
+            <TextBlock Text="Cocktail-App'" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="Ajouter" Margin="9,0,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#FFF75252"/>
         </StackPanel>
 
         <!--ContentPanel - placez tout contenu supplémentaire ici-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,10" >
-            <TextBox x:Name="txt_nom" HorizontalAlignment="Left" Height="72" Margin="0,10,0,0" TextWrapping="Wrap" Text="Saisissez le nom de la recette" VerticalAlignment="Top" Width="456" GotFocus="txt_nom_GotFocus" LostFocus="txt_nom_LostFocus"/>
-            <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="186" Margin="0,119,0,0" TextWrapping="Wrap" Text="Saisir sa description" VerticalAlignment="Top" Width="456" GotFocus="txt_description_GotFocus" LostFocus="txt_description_LostFocus"/>
+            <ScrollViewer>
+                <StackPanel>
+                    <TextBlock x:Name="desc_txt_nom" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Nom du cocktail :" />
+                    <TextBox x:Name="txt_nom" HorizontalAlignment="Left" Height="80" Margin="0,0,0,0" TextWrapping="Wrap" Text="Saisissez le nom de la recette" VerticalAlignment="Top" Width="456" GotFocus="txt_nom_GotFocus" LostFocus="txt_nom_LostFocus"/>
+                    <TextBlock x:Name="txt_error_nom" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="-4.98,0.151" Width="430" FontStyle="Italic" Foreground="#FFFF0006"/>
 
-            <Image Name="imageCocktail" Width="150" Height="150" MouseLeftButtonDown="imageCocktail_MouseLeftButtonDown" Source="/Assets/Img/no-image.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,332,0,0"/>
-            <TextBlock x:Name="txt_error_nom" HorizontalAlignment="Left" Margin="10,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="-4.98,0.151" Width="430" FontStyle="Italic" Foreground="#FFFF0006"/>
-            <RadioButton x:Name="rdb_facile" Content="Facile"  HorizontalAlignment="Left" Margin="18,529,0,0" VerticalAlignment="Top" Checked="rdb_facile_Checked"/>
-            <RadioButton x:Name="rdb_moyen" Content="Moyen" HorizontalAlignment="Left" Margin="147,529,0,0" VerticalAlignment="Top" Checked="rdb_moyen_Checked"/>
-            <RadioButton x:Name="rdb_difficile" Content="Difficile" HorizontalAlignment="Left" Margin="276,529,0,0" VerticalAlignment="Top" Checked="rdb_difficile_Checked"/>
+                    <StackPanel x:Name="Panel_Img" Margin="0,0,0,40" Tap="Panel_Img_Tap" >
+                        <TextBlock x:Name="desc_imageCocktail" TextAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" TextWrapping="Wrap" Text="Touchez pour choisir une image à partir de votre téléphone" />
+                        <Image Name="imageCocktail" Height="200" Source="/Assets/Img/no-image.png" HorizontalAlignment="Center"  Margin="0,20,0,0"/>
+                    </StackPanel>
+                    <TextBlock x:Name="desc_txt_comm" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Commentaire personnel :" />
+                    <TextBox x:Name="txt_comm" HorizontalAlignment="Left" Margin="0,-5,0,0" TextWrapping="Wrap" Text="Saisissez un commentaire personnel" VerticalAlignment="Top" Width="456" Height="120" GotFocus="txt_comm_GotFocus" LostFocus="txt_comm_LostFocus"/>
+
+                    <TextBlock x:Name="desc_txt_real" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Réaliser dans..."  />
+                    <TextBox x:Name="txt_real" HorizontalAlignment="Left" Margin="0,-5,0,0" TextWrapping="Wrap" Text="Où faut-il préparer le cocktail ?" VerticalAlignment="Top" Width="456" GotFocus="txt_real_GotFocus" LostFocus="txt_real_LostFocus"/>
+
+                    <TextBlock x:Name="desc_txt_desc" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Recette :" GotFocus="txt_description_GotFocus" LostFocus="txt_description_LostFocus"/>
+                    <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="350" Margin="0,-5,0,0" TextWrapping="Wrap" Text="Saisissez la totalité de la recette." VerticalAlignment="Top" Width="456" LostFocus="txt_description_LostFocus" GotFocus="txt_description_GotFocus"/>
+
+                    <TextBlock x:Name="desc_txt_serv" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Servir dans..." />
+                    <TextBox x:Name="txt_serv" HorizontalAlignment="Left" Margin="0,-5,0,0" TextWrapping="Wrap" Text="Où faut-il servir le cocktail ?" VerticalAlignment="Top" Width="456" GotFocus="txt_serv_GotFocus" LostFocus="txt_serv_LostFocus"/>
+
+                    <TextBlock x:Name="desc_txt_deco" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Décoration :" />
+                    <TextBox x:Name="txt_deco" HorizontalAlignment="Left" Margin="0,-5,0,0" TextWrapping="Wrap" Text="Décrivez la décoration à ajouter." VerticalAlignment="Top" Width="456" GotFocus="txt_deco_GotFocus" LostFocus="txt_deco_LostFocus" />
+
+                    <StackPanel Orientation="Horizontal" >
+                        <RadioButton x:Name="rdb_facile" Content="Facile"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                        <RadioButton x:Name="rdb_moyen" Content="Moyen" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" />
+                        <RadioButton x:Name="rdb_difficile" Content="Difficile" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" />
+                    </StackPanel>
+                    
+                </StackPanel>
+            </ScrollViewer>
+           
+            
         </Grid>
     </Grid>
 
