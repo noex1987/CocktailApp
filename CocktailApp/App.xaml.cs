@@ -228,7 +228,7 @@ namespace CocktailApp
                 }
             }
 
- 
+
         }
 
         // Code à exécuter lorsque l'application démarre (par exemple, à partir de Démarrer)
