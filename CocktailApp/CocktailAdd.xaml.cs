@@ -59,7 +59,7 @@ namespace CocktailApp
                 if (sourceImageDuCocktail == null)
                     CocktailsRepository.Add(new Cocktails(txt_nom.Text, txt_description.Text, "/Assets/img/no-image.png", rdb, new DateTime()));
                 else
-                    CocktailsRepository.Add(new Cocktails(txt_nom.Text, txt_description.Text, sourceImageDuCocktail.ToString(), rdb, new DateTime()));
+                    CocktailsRepository.Add(new Cocktails(txt_nom.Text, txt_description.Text, sourceImageDuCocktail, rdb, new DateTime()));
                 NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
             }
         }
