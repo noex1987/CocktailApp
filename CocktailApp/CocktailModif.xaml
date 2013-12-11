@@ -48,7 +48,7 @@
 
                     <TextBlock x:Name="desc_txt_deco" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Décoration :" Foreground="White" />
                     <TextBox x:Name="txt_deco" HorizontalAlignment="Left" Margin="0,-5,0,0" TextWrapping="Wrap" Text="{Binding deco}" VerticalAlignment="Top" Width="456" />
-                
+
                     <StackPanel Orientation="Horizontal" >
                         <RadioButton x:Name="rdb_facile" Content="Facile"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                         <RadioButton x:Name="rdb_moyen" Content="Moyen" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" />
