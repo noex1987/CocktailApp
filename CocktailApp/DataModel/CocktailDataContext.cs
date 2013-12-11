@@ -12,7 +12,7 @@ namespace CocktailApp.mesClasses
     public class CocktailDataContext : DataContext
     {
         // Specify the connection string as a static, used in main page and app.xaml.
-        public static string DBConnectionString = "Data Source=isostore:/Cocktails.sdf";
+        //public static string DBConnectionString = "Data Source=isostore:/Cocktails.sdf";
         public CocktailDataContext(string connectionString)
             : base(connectionString)
         { }
@@ -47,7 +47,7 @@ namespace CocktailApp.mesClasses
         // Nom du cocktail 
         private string _cocktailNom;
 
-        [Column(DbType="NvChar(100) NOT NULL", CanBeNull=false)]
+        [Column(DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
         public string CocktailNom
         {
             get
@@ -235,10 +235,10 @@ namespace CocktailApp.mesClasses
         }
 
         //Date de création du Cocktail
-        private string _cocktailDate;
+        private DateTime _cocktailDate;
 
-        [Column]
-        public string CocktailDate
+        [Column(DbType="DateTime")]
+        public DateTime CocktailDate
         {
             get
             {

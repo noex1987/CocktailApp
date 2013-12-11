@@ -36,16 +36,16 @@
                                 <ColumnDefinition Width="85*"/>
                                 <ColumnDefinition Width="15*"/>
                             </Grid.ColumnDefinitions>
-                            <StackPanel Grid.Column="0" Tag="{Binding id}" Orientation="Horizontal" Tap="StackPanel_Tap">
-                                <Image Source="{Binding img}" Width="100" Height="80" VerticalAlignment="Top"/>
+                            <StackPanel Grid.Column="0" Tag="{Binding CocktailID}" Orientation="Horizontal" Tap="StackPanel_Tap">
+                                <Image Source="{Binding CocktailImage}" Width="100" Height="80" VerticalAlignment="Top"/>
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock Text="{Binding nom}" FontSize="32"/>
-                                    <TextBlock Text="{Binding commentaire}" FontSize="18" FontStyle="Italic" TextWrapping="Wrap" Width="300"/>
-                                    <TextBlock Text="{Binding difficulte}" FontSize="16"/>
+                                    <TextBlock Text="{Binding CocktailNom}" FontSize="32"/>
+                                    <TextBlock Text="{Binding CocktailCommentaire}" FontSize="18" FontStyle="Italic" TextWrapping="Wrap" Width="300"/>
+                                    <TextBlock Text="{Binding CocktailDifficulte}" FontSize="16"/>
                                 </StackPanel>
                             </StackPanel>
                             <Grid Grid.Column="1">
-                                <Image Source="{Binding favoris}" Tag="{Binding id}"  VerticalAlignment="Top" HorizontalAlignment="Left" Tap="Fav_Img_Tap"/>
+                                <Image Source="{Binding CocktailFavori}" Tag="{Binding CocktailID}"  VerticalAlignment="Top" HorizontalAlignment="Left" Tap="Fav_Img_Tap"/>
                             </Grid>
                         </Grid>
                     </DataTemplate>
