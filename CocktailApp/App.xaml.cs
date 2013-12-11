@@ -74,13 +74,7 @@ namespace CocktailApp
                 {
                     //Create the database
                     database.CreateDatabase();
-                }
-                else
-                {
-                    database.DeleteDatabase();
-                    database.CreateDatabase();
-                }
-                    
+                }                    
             }
 
             _viewModel = new CocktailDataView(DBConnectionString);

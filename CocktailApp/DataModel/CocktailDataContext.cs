@@ -254,6 +254,58 @@ namespace CocktailApp.mesClasses
                 }
             }
         }
+        public Cocktail(string nom)
+        {
+            this.CocktailNom = nom;
+            CocktailDescription = "Aucune description";
+            CocktailCommentaire = "Sans commentaire";
+            CocktailImage = "/Assets/img/no-image.png";
+            CocktailDifficulte = "Moyen";
+            CocktailFavori = "/Assets/Icons/Dark/nofavs.png";
+            CocktailDecoration = "Aucune décoration particulière";
+            CocktailRealisation = "Non indiqué";
+            CocktailServir = "Non indiqué";
+            CocktailDate = DateTime.Now;
+        }
+
+        public Cocktail(string nom, string description, string commentaire, string image, string difficulte, string favori, string deco, string real, string servir)
+        {
+            CocktailNom = nom;
+
+            if (description != "Saisissez la totalité de la recette.")
+                CocktailDescription = description;
+            else
+                CocktailDescription = "Aucune description";
+
+            if (commentaire != "Saisissez un commentaire personnel")
+                CocktailCommentaire = commentaire;
+            else
+                CocktailCommentaire = "Sans commentaire";
+
+            CocktailImage = image;
+            CocktailDifficulte = difficulte;
+            CocktailFavori = "/Assets/Icons/Dark/nofavs.png";
+
+            if (deco != "Décrivez la décoration à ajouter.")
+                CocktailDecoration = deco;
+            else
+                CocktailDecoration = "Aucune décoration particulière";
+
+            if (real != "Où faut-il préparer le cocktail ?")
+                CocktailRealisation = real;
+            else
+                CocktailRealisation = "Non indiqué";
+
+            if (servir != "Où faut-il servir le cocktail ?")
+                CocktailServir = servir;
+            else
+                CocktailServir = "Non indiqué";
+
+            CocktailDate = DateTime.Now;
+        }
+
+        public Cocktail()
+        { }
 
         #region INotifyPropertyChanged Members
 

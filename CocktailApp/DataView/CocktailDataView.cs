@@ -14,9 +14,9 @@ namespace CocktailApp.mesClasses
         private CocktailDataContext cocktailDB;
 
         // Class constructor, create the data context object.
-        public CocktailDataView(string toDoDBConnectionString)
+        public CocktailDataView(string DBConnectionString)
         {
-            cocktailDB = new CocktailDataContext(toDoDBConnectionString);
+            cocktailDB = new CocktailDataContext(DBConnectionString);
         }
 
         // Define an observable collection property that controls can bind to.
@@ -53,30 +53,36 @@ namespace CocktailApp.mesClasses
             Cocktails = new ObservableCollection<Cocktail>(CocktailsDansBase);
         }
 
-        // Add a to-do item to the database and collections.
+        /// <summary>
+        /// Ajouter un cocktail dans la base
+        /// </summary>
+        /// <param name="unCocktail"></param>
         public void AddCocktail(Cocktail unCocktail)
         {
-            // Add a to-do item to the data context.
+            // ajouter un cocktail
             cocktailDB.cocktails.InsertOnSubmit(unCocktail);
 
-            // Save changes to the database.
+            // sauvegarder dans la base
             cocktailDB.SubmitChanges();
 
-            // Add a to-do item to the "all" observable collection.
+            // ajouter un cocktail à la collection
             Cocktails.Add(unCocktail);
         }
 
-        // Remove a to-do task item from the database and collections.
+        /// <summary>
+        /// Supprimer un cocktail de la base
+        /// </summary>
+        /// <param name="unCocktail"></param>
         public void DeleteCocktail(Cocktail unCocktail)
         {
 
-            // Remove the to-do item from the "all" observable collection.
+            // Supprimer le cocktail de la liste
             Cocktails.Remove(unCocktail);
 
-            // Remove the to-do item from the data context.
+            // Supprimer le cocktail de la abse
             cocktailDB.cocktails.DeleteOnSubmit(unCocktail);
 
-            // Save changes to the database.
+            // Sauvegarder la base de données
             cocktailDB.SubmitChanges();
         }
 

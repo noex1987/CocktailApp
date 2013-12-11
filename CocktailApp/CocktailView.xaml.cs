@@ -13,7 +13,7 @@ namespace CocktailApp
 {
     public partial class CocktailView : PhoneApplicationPage
     {
-        private Cocktails cocktail = null;
+        private Cocktail cocktail = null;
         public CocktailView()
         {
             InitializeComponent();
@@ -28,8 +28,11 @@ namespace CocktailApp
             int cocktailId = -1;
             if (int.TryParse(parameter, out cocktailId))
             {
-                CocktailsRepository cocktailRepository = new CocktailsRepository();
-                cocktail = cocktailRepository.Find(cocktailId);
+                CocktailDataContext cocktailDB = new CocktailDataContext("Data Source=isostore:/Cocktails.sdf");
+
+                cocktail = (from c in cocktailDB.cocktails
+                           where  c.CocktailID == cocktailId
+                           select c).First();
             }
 
             this.DataContext = cocktail;
@@ -60,11 +63,11 @@ namespace CocktailApp
 
         private void btnEdit_Click(Object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri(String.Format("/CocktailModif.xaml?parameter={0}", this.cocktail.id), UriKind.Relative));
+            NavigationService.Navigate(new Uri(String.Format("/CocktailModif.xaml?parameter={0}", cocktail.CocktailID), UriKind.Relative));
         }
         private void btnDelete_Click(Object sender, EventArgs e)
         {
-            CocktailsRepository.Remove(cocktail);
+            //App.ViewModel.DeleteCocktail(cocktail); -> A voir
             NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
     }

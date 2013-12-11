@@ -60,9 +60,9 @@ namespace CocktailApp
                 // ajout dans la base
                 Cocktail unNouveauCocktail;
                 if(sourceImageDuCocktail == null)
-                    unNouveauCocktail = new Cocktail { CocktailNom = txt_nom.Text, CocktailDescription = txt_description.Text, CocktailImage = "/Assets/img/no-image.png", CocktailDifficulte=rdb, CocktailCommentaire=txt_comm.Text, CocktailRealisation=txt_real.Text, CocktailDecoration=txt_deco.Text, CocktailServir=txt_serv.Text, CocktailDate=DateTime.Now };
+                    unNouveauCocktail = new Cocktail(txt_nom.Text, txt_description.Text, txt_comm.Text, "/Assets/img/no-image.png", rdb, null, txt_deco.Text, txt_real.Text, txt_serv.Text);
                 else
-                    unNouveauCocktail = new Cocktail { CocktailNom = txt_nom.Text, CocktailDescription = txt_description.Text, CocktailImage = sourceImageDuCocktail, CocktailDifficulte = rdb, CocktailCommentaire = txt_comm.Text, CocktailRealisation = txt_real.Text, CocktailDecoration = txt_deco.Text, CocktailServir = txt_serv.Text, CocktailDate = DateTime.Now };
+                    unNouveauCocktail = new Cocktail(txt_nom.Text, txt_description.Text, txt_comm.Text, sourceImageDuCocktail, rdb, null, txt_deco.Text, txt_real.Text, txt_serv.Text); 
                 App.ViewModel.AddCocktail(unNouveauCocktail);
                 NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
             }
