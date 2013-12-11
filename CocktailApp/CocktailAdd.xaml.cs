@@ -6,6 +6,7 @@ using System;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Windows;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 
@@ -13,7 +14,8 @@ namespace CocktailApp
 {
     public partial class CocktailAdd : PhoneApplicationPage
     {
-        BitmapImage bmp;
+        BitmapImage bmp { get; set; }
+        string sourceImageDuCocktail { get; set; }
         public CocktailAdd()
         {
             InitializeComponent();
@@ -54,7 +56,10 @@ namespace CocktailApp
                 string rdb = "Facile";
                 if (rdb_moyen.IsChecked == true) rdb = "Moyen";
                 if (rdb_difficile.IsChecked == true) rdb = "Difficile";
-                CocktailsRepository.Add(new Cocktails(txt_nom.Text, txt_description.Text, "/Assets/img/no-image.png", rdb, new DateTime()));
+                if (sourceImageDuCocktail == null)
+                    CocktailsRepository.Add(new Cocktails(txt_nom.Text, txt_description.Text, "/Assets/img/no-image.png", rdb, new DateTime()));
+                else
+                    CocktailsRepository.Add(new Cocktails(txt_nom.Text, txt_description.Text, sourceImageDuCocktail.ToString(), rdb, new DateTime()));
                 NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
             }
         }
@@ -155,8 +160,8 @@ namespace CocktailApp
                     BitmapImage bmp = new BitmapImage();
                     bmp.SetSource(fileStream);
                     imageCocktail.Source = bmp;
+                    sourceImageDuCocktail = fileStream.Name.ToString();
                 }
-
             }
         }      
 
