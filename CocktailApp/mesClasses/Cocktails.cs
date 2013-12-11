@@ -10,10 +10,16 @@ namespace CocktailApp.mesClasses
     {
         public int id { get; set; }
         public string nom {get;set;}
+        public string commentaire { get; set; }
         public string description { get; set; }
         public string img { get; set; }
         public string difficulte { get; set; }
         public string favoris { get; set; }
+
+        public string realisation { get; set; }
+        public string servirDans { get; set; }
+        public string deco { get; set; }
+
         private DateTime dateCreation;
         private DateTime dateMiseAJour;
 
@@ -21,9 +27,13 @@ namespace CocktailApp.mesClasses
         {
             this.nom = p_nom;
             this.description = "Aucune description";
+            this.commentaire = "Sans commentaire";
             this.img = "/Assets/img/no-image.png";
             this.difficulte = "Moyen";
             this.favoris = "/Assets/Icons/Dark/nofavs.png";
+            this.deco = "Aucune déco particulière";
+            this.realisation = "Non indiqué";
+            this.servirDans = "Non indiqué";
             this.dateCreation = this.dateMiseAJour = new DateTime();
         }
         public Cocktails(string p_nom, string p_description, string p_img,string p_difficulte, DateTime p_date)

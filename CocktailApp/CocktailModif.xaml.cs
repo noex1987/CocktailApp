@@ -73,7 +73,7 @@ namespace CocktailApp
                 string rdb = "Facile";
                 if (rdb_moyen.IsChecked == true) rdb = "Moyen";
                 if (rdb_difficile.IsChecked == true) rdb = "Difficile";
-                CocktailsRepository.Edit( cocktail, txt_nom.Text, txt_description.Text, cocktail.img, rdb);
+                CocktailsRepository.Edit( cocktail, txt_nom.Text, txt_description.Text, cocktail.img, rdb, txt_comm.Text,txt_serv.Text, txt_deco.Text, txt_real.Text);
                 NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
             }
         }
@@ -94,7 +94,6 @@ namespace CocktailApp
             if (txt_description.Text == "")
                 txt_description.Text = cocktail.description;
         }
-
-      
+     
     }
 }
