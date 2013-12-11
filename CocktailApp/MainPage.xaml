@@ -23,31 +23,25 @@
         
         <!--TitlePanel contient le nom de l'application et le titre de la page-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="COCKTAILAPP" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
-            <TextBlock Text="Cocktail-App'" Margin="9, 0,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#FFF75252"/>
+            <TextBlock Text="Cocktail-App'" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+            <TextBlock Text="Mes Cocktails" Margin="9, 0,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#FFF75252"/>
         </StackPanel>
         <!--ContentPanel - placez tout contenu supplémentaire ici-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <ListBox x:Name="listeDeCocktails">
                 <ListBox.ItemTemplate >
                     <DataTemplate>
-                        <Grid>
+                        <Grid Margin="0,10,0,10">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="85*"/>
                                 <ColumnDefinition Width="15*"/>
                             </Grid.ColumnDefinitions>
-                            <StackPanel Grid.Column="0" Tag="{Binding id}" Orientation="Horizontal" Height="80" Width="400" Tap="StackPanel_Tap">
-                                <Image Source="{Binding img}" Width="100" Height="80"/>
-                                <StackPanel Orientation="Vertical" Height="80">
-                                    <StackPanel Orientation="Horizontal" Height="40">
-                                        <TextBlock Width="80" Height="40" Text="Nom :"/>
-                                        <TextBlock Width="200" Height="40" Text="{Binding nom}"/>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Vertical" Height="80">
-                                        
-                                        <TextBlock Width="200" Height="40" Text="{Binding difficulte}"/>
-                                        <TextBlock Width="200" Height="40" Text="{Binding commentaire}"/>
-                                    </StackPanel>
+                            <StackPanel Grid.Column="0" Tag="{Binding id}" Orientation="Horizontal" Tap="StackPanel_Tap">
+                                <Image Source="{Binding img}" Width="100" Height="80" VerticalAlignment="Top"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding nom}" FontSize="32"/>
+                                    <TextBlock Text="{Binding commentaire}" FontSize="18" FontStyle="Italic" TextWrapping="Wrap" Width="300"/>
+                                    <TextBlock Text="{Binding difficulte}" FontSize="16"/>
                                 </StackPanel>
                             </StackPanel>
                             <Grid Grid.Column="1">

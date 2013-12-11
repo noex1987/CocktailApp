@@ -31,18 +31,44 @@ namespace CocktailApp.mesClasses
             this.img = "/Assets/img/no-image.png";
             this.difficulte = "Moyen";
             this.favoris = "/Assets/Icons/Dark/nofavs.png";
-            this.deco = "Aucune déco particulière";
+            this.deco = "Aucune décoration particulière";
             this.realisation = "Non indiqué";
             this.servirDans = "Non indiqué";
             this.dateCreation = this.dateMiseAJour = new DateTime();
         }
-        public Cocktails(string p_nom, string p_description, string p_img,string p_difficulte, DateTime p_date)
+        public Cocktails(string p_nom, string p_description, string p_commentaire, string p_img,string p_difficulte, string p_deco, string p_real, string p_serv, DateTime p_date)
         {
             this.nom = p_nom;
-            this.description = p_description;
+
+            if (p_description != "Saisissez la totalité de la recette.")
+                this.description = p_description;
+            else
+                this.description = "Aucune description";
+
+            if (p_commentaire != "Saisissez un commentaire personnel")
+                this.commentaire = p_commentaire;
+            else
+                this.commentaire = "Sans commentaire";
+           
             this.img = p_img;
             this.difficulte = p_difficulte;
             this.favoris = "/Assets/Icons/Dark/nofavs.png";
+
+            if (p_deco != "Décrivez la décoration à ajouter.")
+                this.deco = p_deco;
+            else
+                this.deco = "Aucune décoration particulière";
+
+            if (p_real != "Où faut-il préparer le cocktail ?")
+                this.realisation = p_real;
+            else
+                this.realisation = "Non indiqué";
+
+            if (p_serv != "Où faut-il servir le cocktail ?")
+                this.servirDans = p_serv;
+            else
+                this.servirDans = "Non indiqué";
+
             this.dateCreation = this.dateMiseAJour = p_date;
         }
 
