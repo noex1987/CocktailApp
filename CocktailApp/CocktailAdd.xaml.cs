@@ -56,10 +56,14 @@ namespace CocktailApp
                 string rdb = "Facile";
                 if (rdb_moyen.IsChecked == true) rdb = "Moyen";
                 if (rdb_difficile.IsChecked == true) rdb = "Difficile";
-                if (sourceImageDuCocktail == null)
-                    CocktailsRepository.Add(new Cocktails(txt_nom.Text, txt_description.Text, "/Assets/img/no-image.png", rdb, new DateTime()));
+
+                // ajout dans la base
+                Cocktail unNouveauCocktail;
+                if(sourceImageDuCocktail == null)
+                    unNouveauCocktail = new Cocktail { CocktailNom = txt_nom.Text, CocktailDescription = txt_description.Text, CocktailImage = "/Assets/img/no-image.png", CocktailDifficulte=rdb };
                 else
-                    CocktailsRepository.Add(new Cocktails(txt_nom.Text, txt_description.Text, sourceImageDuCocktail, rdb, new DateTime()));
+                    unNouveauCocktail = new Cocktail { CocktailNom = txt_nom.Text, CocktailDescription = txt_description.Text, CocktailImage = sourceImageDuCocktail, CocktailDifficulte = rdb };
+                App.ViewModel.AddCocktail(unNouveauCocktail);
                 NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
             }
         }

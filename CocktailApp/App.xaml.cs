@@ -7,11 +7,19 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using CocktailApp.Resources;
+using CocktailApp.mesClasses;
 
 namespace CocktailApp
 {
     public partial class App : Application
     {
+        // The static ViewModel, to be used across the application.
+        private static CocktailDataView _viewModel;
+        public static CocktailDataView ViewModel
+        {
+            get { return _viewModel; }
+        }
+
         /// <summary>
         /// Permet d'accéder facilement au frame racine de l'application téléphonique.
         /// </summary>
@@ -54,6 +62,24 @@ namespace CocktailApp
                 // et seront alimentées par la batterie lorsque l'utilisateur ne se sert pas du téléphone.
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
+
+            // Specify the local database connection string.
+            string DBConnectionString = "Data Source=isostore:/Cocktails.sdf";
+
+
+            // Create the database if it does not exist.
+            using (CocktailDataContext database = new CocktailDataContext(DBConnectionString))
+            {
+                if (database.DatabaseExists() == false)
+                {
+                    //Create the database
+                    database.CreateDatabase();
+                }
+            }
+
+            _viewModel = new CocktailDataView(DBConnectionString);
+            _viewModel.LoadCollectionsFromDatabase();
+
 
         }
 

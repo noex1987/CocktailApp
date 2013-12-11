@@ -10,6 +10,9 @@ using Microsoft.Phone.Shell;
 using CocktailApp.Resources;
 using CocktailApp.mesClasses;
 using System.Windows.Media.Imaging;
+using System.ComponentModel;
+using System.Collections.ObjectModel;
+
 
 namespace CocktailApp
 {
@@ -20,13 +23,23 @@ namespace CocktailApp
         {
             InitializeComponent();
 
+            // Data context and observable collection are children of the main page.
+            this.DataContext = App.ViewModel;
             buildCocktailListedBar();
             initialisationDonnees();
         }
+
+
+        protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            // Save changes to the database.
+            App.ViewModel.SaveChangesToDB();
+        }
+
         private void initialisationDonnees()
         {
-            CocktailsRepository mesCocktails = new CocktailsRepository();
-            this.listeDeCocktails.ItemsSource = mesCocktails.List();
+            CocktailDataContext mesCocktails = new CocktailDataContext("Data Source=isostore:/Cocktails.sdf");
+            this.listeDeCocktails.ItemsSource =  mesCocktails.cocktails;
         }
 
         private void buildCocktailListedBar()
@@ -77,7 +90,5 @@ namespace CocktailApp
                 NavigationService.Navigate(new Uri(String.Format("/CocktailView.xaml?parameter={0}", selectedItemData.id), UriKind.Relative));
                     
         }
-
-        
     }
 }

@@ -36,23 +36,23 @@
                                 <ColumnDefinition Width="85*"/>
                                 <ColumnDefinition Width="15*"/>
                             </Grid.ColumnDefinitions>
-                            <StackPanel Grid.Column="0" Tag="{Binding id}" Orientation="Horizontal" Height="80" Width="400" Tap="StackPanel_Tap">
-                                <Image Source="{Binding img}" Width="100" Height="80"/>
+                            <StackPanel Grid.Column="0" Tag="{Binding CocktailID}" Orientation="Horizontal" Height="80" Width="400" Tap="StackPanel_Tap">
+                                <Image Source="{Binding CocktailImage}" Width="100" Height="80"/>
                                 <StackPanel Orientation="Vertical" Height="80">
                                     <StackPanel Orientation="Horizontal" Height="40">
                                         <TextBlock Width="80" Height="40" Text="Nom :"/>
-                                        <TextBlock Width="200" Height="40" Text="{Binding nom}"/>
+                                        <TextBlock Width="200" Height="40" Text="{Binding CocktailNom}"/>
                                     </StackPanel>
-                                    <StackPanel Orientation="Vertical" Height="80">
+                                    <!--<StackPanel Orientation="Vertical" Height="80">
                                         
                                         <TextBlock Width="200" Height="40" Text="{Binding difficulte}"/>
                                         <TextBlock Width="200" Height="40" Text="{Binding commentaire}"/>
-                                    </StackPanel>
+                                    </StackPanel>-->
                                 </StackPanel>
                             </StackPanel>
-                            <Grid Grid.Column="1">
+                            <!--<Grid Grid.Column="1">
                                 <Image Source="{Binding favoris}" Tag="{Binding id}"  VerticalAlignment="Top" HorizontalAlignment="Left" Tap="Fav_Img_Tap"/>
-                            </Grid>
+                            </Grid>-->
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
