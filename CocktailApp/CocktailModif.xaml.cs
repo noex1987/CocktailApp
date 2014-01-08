@@ -94,12 +94,16 @@ namespace CocktailApp
                     nouveauCocktail = new Cocktail(txt_nom.Text, txt_description.Text, txt_comm.Text, sourceImageDuCocktail, rdb, null, txt_deco.Text, txt_real.Text, txt_serv.Text);
                 nouveauCocktail.CocktailID = cocktail.CocktailID;
                 App.ViewModel.UpdateCocktail(nouveauCocktail);
+                while(NavigationService.CanGoBack)
+                    NavigationService.RemoveBackEntry();
+                //NavigationService.RemoveBackEntry();
                 NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+                //NavigationService.GoBack();
             }
         }
         private void btnCancel_Click(Object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            NavigationService.GoBack();
         }
 
 

@@ -42,7 +42,8 @@ namespace CocktailApp
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            NavigationService.RemoveBackEntry();    
+            NavigationService.RemoveBackEntry();
+            initialisationDonnees();
         }
 
         private void initialisationDonnees()

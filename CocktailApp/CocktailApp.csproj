@@ -107,7 +107,6 @@
     <Compile Include="CocktailView.xaml.cs">
       <DependentUpon>CocktailView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="mesClasses\CocktailsRepository.cs" />
     <Compile Include="DataModel\CocktailDataContext.cs" />
     <Compile Include="DataView\CocktailDataView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

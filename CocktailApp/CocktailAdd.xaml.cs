@@ -23,6 +23,7 @@ namespace CocktailApp
             rdb_facile.IsChecked = true;
             bmp = new BitmapImage();
         }
+
         private void buildCocktailAddBar()
         {
             ApplicationBar = new ApplicationBar();
@@ -65,12 +66,13 @@ namespace CocktailApp
                 else
                     unNouveauCocktail = new Cocktail(txt_nom.Text, txt_description.Text, txt_comm.Text, sourceImageDuCocktail, rdb, null, txt_deco.Text, txt_real.Text, txt_serv.Text); 
                 App.ViewModel.AddCocktail(unNouveauCocktail);
-                NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+               // NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+                NavigationService.GoBack();
             }
         }
         private void btnCancel_Click(Object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            NavigationService.GoBack();
         }
 
         private void txt_comm_GotFocus(object sender, RoutedEventArgs e)
