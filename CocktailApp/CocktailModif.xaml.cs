@@ -22,6 +22,7 @@ namespace CocktailApp
         private CocktailDataContext cocktailDB;
         BitmapImage bmp { get; set; }
         string sourceImageDuCocktail { get; set; }
+        string sourceNouvelleImageDuCocktail { get; set; }
         public CocktailModif()
         {
             InitializeComponent();
@@ -88,6 +89,8 @@ namespace CocktailApp
                 Cocktail nouveauCocktail;
                 if (sourceImageDuCocktail == null)
                     nouveauCocktail = new Cocktail(txt_nom.Text, txt_description.Text, txt_comm.Text, "/Assets/img/no-image.png", rdb, null, txt_deco.Text, txt_real.Text, txt_serv.Text);
+                else if (sourceNouvelleImageDuCocktail != null)
+                    nouveauCocktail = new Cocktail(txt_nom.Text, txt_description.Text, txt_comm.Text, sourceNouvelleImageDuCocktail, rdb, null, txt_deco.Text, txt_real.Text, txt_serv.Text);
                 else
                     nouveauCocktail = new Cocktail(txt_nom.Text, txt_description.Text, txt_comm.Text, sourceImageDuCocktail, rdb, null, txt_deco.Text, txt_real.Text, txt_serv.Text);
                 nouveauCocktail.CocktailID = cocktail.CocktailID;
@@ -167,7 +170,7 @@ namespace CocktailApp
                     BitmapImage bmp = new BitmapImage();
                     bmp.SetSource(fileStream);
                     imageCocktail.Source = bmp;
-                    sourceImageDuCocktail = fileStream.Name.ToString();
+                    sourceNouvelleImageDuCocktail = fileStream.Name.ToString();
                 }
             }
         }
