@@ -70,7 +70,7 @@ namespace CocktailApp
         private void btnDelete_Click(Object sender, EventArgs e)
         {
             App.ViewModel.DeleteCocktail(cocktail);
-            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            NavigationService.GoBack();
         }
     }
 }
