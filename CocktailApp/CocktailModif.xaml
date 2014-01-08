@@ -32,28 +32,28 @@
             <ScrollViewer Margin="12,10,12,10" >
                 <StackPanel>
                     <TextBlock x:Name="desc_txt_nom" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Nom du cocktail :" Foreground="Black" />
-                    <TextBox x:Name="txt_nom" HorizontalAlignment="Left" Height="80" Margin="0,0,0,0" TextWrapping="Wrap" Text="{Binding nom}" VerticalAlignment="Top" Width="456" LostFocus="txt_nom_LostFocus"/>
+                    <TextBox x:Name="txt_nom" HorizontalAlignment="Left" Height="80" Margin="0,0,0,0" TextWrapping="Wrap" Text="{Binding CocktailNom}" VerticalAlignment="Top" Width="456" LostFocus="txt_nom_LostFocus"/>
                     <TextBlock x:Name="txt_error_nom" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="-4.98,0.151" Width="430" FontStyle="Italic" Foreground="#FFFF0006"/>
 
                     <StackPanel x:Name="Panel_Img" Margin="0,0,0,40" Tap="Panel_Img_Tap">
                         <TextBlock x:Name="desc_imageCocktail" TextAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" TextWrapping="Wrap" Text="Touchez pour choisir une image à partir de votre téléphone" Foreground="Black" />
-                        <Image Name="imageCocktail" Height="200" Source="{Binding img}" HorizontalAlignment="Center"  Margin="0,20,0,0"/>
+                        <Image Name="imageCocktail" Height="200" Source="{Binding CocktailImage}" HorizontalAlignment="Center"  Margin="0,20,0,0"/>
                     </StackPanel>
 
                     <TextBlock x:Name="desc_txt_comm" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Commentaire personnel :" Foreground="Black" />
-                    <TextBox x:Name="txt_comm" HorizontalAlignment="Left" Margin="0,-5,0,0" TextWrapping="Wrap" Text="{Binding commentaire}" VerticalAlignment="Top" Width="456" Height="120"/>
+                    <TextBox x:Name="txt_comm" HorizontalAlignment="Left" Margin="0,-5,0,0" TextWrapping="Wrap" Text="{Binding CocktailCommentaire}" VerticalAlignment="Top" Width="456" Height="120"/>
 
                     <TextBlock x:Name="desc_txt_real" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Réaliser dans..." Foreground="Black"  />
-                    <TextBox x:Name="txt_real" HorizontalAlignment="Left" Margin="0,-5,0,0" TextWrapping="Wrap" Text="{Binding realisation}" VerticalAlignment="Top" Width="456"/>
+                    <TextBox x:Name="txt_real" HorizontalAlignment="Left" Margin="0,-5,0,0" TextWrapping="Wrap" Text="{Binding CocktailRealisation}" VerticalAlignment="Top" Width="456"/>
 
                     <TextBlock x:Name="desc_txt_desc" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Recette :" Foreground="Black"/>
-                    <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="350" Margin="0,-5,0,0" TextWrapping="Wrap" Text="{Binding description}" VerticalAlignment="Top" Width="456" LostFocus="txt_description_LostFocus"/>
+                    <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="350" Margin="0,-5,0,0" TextWrapping="Wrap" Text="{Binding CocktailDescription}" VerticalAlignment="Top" Width="456" LostFocus="txt_description_LostFocus"/>
 
                     <TextBlock x:Name="desc_txt_serv" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Servir dans..." Foreground="Black" />
-                    <TextBox x:Name="txt_serv" HorizontalAlignment="Left" Margin="0,-5,0,0" TextWrapping="Wrap" Text="{Binding servirDans}" VerticalAlignment="Top" Width="456"/>
+                    <TextBox x:Name="txt_serv" HorizontalAlignment="Left" Margin="0,-5,0,0" TextWrapping="Wrap" Text="{Binding CocktailServir}" VerticalAlignment="Top" Width="456"/>
 
                     <TextBlock x:Name="desc_txt_deco" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Décoration :" Foreground="Black" />
-                    <TextBox x:Name="txt_deco" HorizontalAlignment="Left" Margin="0,-5,0,0" TextWrapping="Wrap" Text="{Binding deco}" VerticalAlignment="Top" Width="456" />
+                    <TextBox x:Name="txt_deco" HorizontalAlignment="Left" Margin="0,-5,0,0" TextWrapping="Wrap" Text="{Binding CocktailDeco}" VerticalAlignment="Top" Width="456" />
 
                     <StackPanel Orientation="Horizontal" >
                         <RadioButton x:Name="rdb_facile" Content="Facile"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="Black"/>
