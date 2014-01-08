@@ -26,7 +26,8 @@ namespace CocktailApp
         private void buildCocktailAddBar()
         {
             ApplicationBar = new ApplicationBar();
-            ApplicationBar.Mode = ApplicationBarMode.Default;
+            ApplicationBar.Mode = ApplicationBarMode.Minimized;
+            ApplicationBar.BackgroundColor = Color.FromArgb(255, 17, 21, 68);
             ApplicationBar.Opacity = 1.0;
             ApplicationBar.IsVisible = true;
             ApplicationBar.IsMenuEnabled = true;

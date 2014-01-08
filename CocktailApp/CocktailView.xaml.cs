@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using CocktailApp.mesClasses;
+using System.Windows.Media;
 
 namespace CocktailApp
 {
@@ -41,7 +42,8 @@ namespace CocktailApp
         private void buildCocktailViewBar()
         {
             ApplicationBar = new ApplicationBar();
-            ApplicationBar.Mode = ApplicationBarMode.Default;
+            ApplicationBar.Mode = ApplicationBarMode.Minimized;
+            ApplicationBar.BackgroundColor = Color.FromArgb(255, 17, 21, 68);
             ApplicationBar.Opacity = 1.0;
             ApplicationBar.IsVisible = true;
             ApplicationBar.IsMenuEnabled = true;

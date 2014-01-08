@@ -33,6 +33,7 @@ namespace CocktailApp.mesClasses
             Mojito.favoris = "/Assets/Icons/Dark/favs.png";
             Mojito.id = 1;
 
+
             Cocktails PiñaColada = new Cocktails("Piña Colada");
             PiñaColada.commentaire = "A déguster allongé sur un transat !";
             PiñaColada.description = "-4 cl de rhum blanc\n-2cl de rhum ambré\n-12 cl de jus d’ananas\n-4cl de lait de coco;\nDans un mixer, versez tous les ingrédients, y compris les glaçons et mixez le tout. C'est prêt ! Versez dans le verre et dégustez.";
