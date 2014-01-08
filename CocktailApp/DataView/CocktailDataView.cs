@@ -207,6 +207,13 @@ namespace CocktailApp.mesClasses
             cocktailDB.SubmitChanges();
         }
 
+        public void UpdateCocktailFavori(Cocktail unCocktail)
+        {
+            Cocktail leCocktailAModifier = cocktailDB.cocktails.Single(c => c.CocktailID == unCocktail.CocktailID);
+            leCocktailAModifier.CocktailFavori = unCocktail.CocktailFavori;
+            cocktailDB.SubmitChanges();
+        }
+
         #region INotifyPropertyChanged Members
 
         public event PropertyChangedEventHandler PropertyChanged;

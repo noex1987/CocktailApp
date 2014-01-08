@@ -306,13 +306,13 @@ namespace CocktailApp.mesClasses
 
         public void ChangeFav()
         {
-            if (this._cocktailFavori == "/Assets/Icons/Dark/nofavs.png")
+            if (CocktailFavori == "/Assets/Icons/Dark/nofavs.png")
             {
-                this._cocktailFavori = "/Assets/Icons/Dark/favs.png";
+                CocktailFavori = "/Assets/Icons/Dark/favs.png";
             }
             else
             {
-                this._cocktailFavori = "/Assets/Icons/Dark/nofavs.png";
+                CocktailFavori = "/Assets/Icons/Dark/nofavs.png";
             }
 
         }

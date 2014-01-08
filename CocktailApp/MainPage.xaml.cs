@@ -42,7 +42,7 @@ namespace CocktailApp
 
         private void initialisationDonnees()
         {
-            this.listeDeCocktails.ItemsSource =  mesCocktails.cocktails;
+            this.listeDeCocktails.ItemsSource = mesCocktails.cocktails.OrderBy(c => c.CocktailNom).OrderByDescending(c => c.CocktailFavori == "/Assets/Icons/Dark/favs.png");
         }
 
         private void buildCocktailListedBar()
@@ -78,6 +78,7 @@ namespace CocktailApp
             int id = (int)(sender as Image).Tag;
             Cocktail leCocktail = mesCocktails.cocktails.Single(ID => ID.CocktailID == id);
             leCocktail.ChangeFav();
+            App.ViewModel.UpdateCocktailFavori(leCocktail);
             (sender as Image).Source = new BitmapImage(new Uri(leCocktail.CocktailFavori, UriKind.Relative));
             
         }

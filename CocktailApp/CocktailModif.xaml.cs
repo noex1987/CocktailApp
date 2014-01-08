@@ -82,7 +82,6 @@ namespace CocktailApp
             }
             else
             {
-                //Cocktail oldCocktail = cocktail;
                 string rdb = "Facile";
                 if (rdb_moyen.IsChecked == true) rdb = "Moyen";
                 if (rdb_difficile.IsChecked == true) rdb = "Difficile";
