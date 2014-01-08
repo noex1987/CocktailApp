@@ -40,6 +40,11 @@ namespace CocktailApp
             App.ViewModel.SaveChangesToDB();
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            NavigationService.RemoveBackEntry();    
+        }
+
         private void initialisationDonnees()
         {
             this.listeDeCocktails.ItemsSource = mesCocktails.cocktails.OrderBy(c => c.CocktailNom).OrderByDescending(c => c.CocktailFavori == "/Assets/Icons/Dark/favs.png");
@@ -80,7 +85,9 @@ namespace CocktailApp
             leCocktail.ChangeFav();
             App.ViewModel.UpdateCocktailFavori(leCocktail);
             (sender as Image).Source = new BitmapImage(new Uri(leCocktail.CocktailFavori, UriKind.Relative));
-            
+            //NavigationService.Navigate(new Uri("/MainPage.xaml?reload=true", UriKind.Relative));
+            NavigationService.Navigate(new Uri(String.Format("/MainPage.xaml?id={0}", Guid.NewGuid().ToString()), UriKind.Relative));
+
         }
 
         private void StackPanel_Tap(object sender, System.Windows.Input.GestureEventArgs e)
