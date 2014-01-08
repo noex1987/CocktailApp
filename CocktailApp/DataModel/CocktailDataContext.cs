@@ -304,8 +304,23 @@ namespace CocktailApp.mesClasses
             CocktailDate = DateTime.Now;
         }
 
+        public void ChangeFav()
+        {
+            if (this._cocktailFavori == "/Assets/Icons/Dark/nofavs.png")
+            {
+                this._cocktailFavori = "/Assets/Icons/Dark/favs.png";
+            }
+            else
+            {
+                this._cocktailFavori = "/Assets/Icons/Dark/nofavs.png";
+            }
+
+        }
+
         public Cocktail()
         { }
+
+
 
         #region INotifyPropertyChanged Members
 
@@ -319,6 +334,7 @@ namespace CocktailApp.mesClasses
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
 
         #endregion
 

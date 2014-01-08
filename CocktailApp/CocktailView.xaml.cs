@@ -14,10 +14,12 @@ namespace CocktailApp
     public partial class CocktailView : PhoneApplicationPage
     {
         private Cocktail cocktail = null;
+        private CocktailDataContext cocktailDB;
         public CocktailView()
         {
             InitializeComponent();
             buildCocktailViewBar();
+            cocktailDB = new CocktailDataContext("Data Source=isostore:/Cocktails.sdf");
         }
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
@@ -28,8 +30,6 @@ namespace CocktailApp
             int cocktailId = -1;
             if (int.TryParse(parameter, out cocktailId))
             {
-                CocktailDataContext cocktailDB = new CocktailDataContext("Data Source=isostore:/Cocktails.sdf");
-
                 cocktail = (from c in cocktailDB.cocktails
                            where  c.CocktailID == cocktailId
                            select c).First();
@@ -67,7 +67,7 @@ namespace CocktailApp
         }
         private void btnDelete_Click(Object sender, EventArgs e)
         {
-            //App.ViewModel.DeleteCocktail(cocktail); -> A voir
+            App.ViewModel.DeleteCocktail(cocktail);
             NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
     }

@@ -77,17 +77,6 @@ namespace CocktailApp.mesClasses
             this.dateMiseAJour = new DateTime();
         }
 
-        public void ChangeFav()
-        {
-            if ( this.favoris == "/Assets/Icons/Dark/nofavs.png" )
-            {
-                this.favoris = "/Assets/Icons/Dark/favs.png";
-            }
-            else
-            {
-                this.favoris = "/Assets/Icons/Dark/nofavs.png";
-            }
-            
-        }
+        
     }
 }

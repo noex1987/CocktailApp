@@ -9,6 +9,7 @@ namespace CocktailApp.mesClasses
     class CocktailsRepository
     {
         private static List<Cocktails> CocktailsList = null;
+        private CocktailDataContext cocktailDB;
 
         public CocktailsRepository()
         {
@@ -16,9 +17,10 @@ namespace CocktailApp.mesClasses
                 CocktailsList = new List<Cocktails>();
                 Init();
             }
+            cocktailDB = new CocktailDataContext("Data Source=isostore:/Cocktails.sdf");
         }
 
-        private void Init()
+        public void Init()
         {
             Cocktails Mojito = new Cocktails("Mojito");
             Mojito.commentaire = "Extrêmement rafraichissant !";

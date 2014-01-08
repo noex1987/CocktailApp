@@ -68,17 +68,20 @@ namespace CocktailApp
 
 
             // Create the database if it does not exist.
+            _viewModel = new CocktailDataView(DBConnectionString);
             using (CocktailDataContext database = new CocktailDataContext(DBConnectionString))
             {
                 if (database.DatabaseExists() == false)
                 {
+                    //database.DeleteDatabase();
                     //Create the database
                     database.CreateDatabase();
+                    _viewModel.Init();
                 }                    
             }
-
-            _viewModel = new CocktailDataView(DBConnectionString);
+            
             _viewModel.LoadCollectionsFromDatabase();
+            
 
 
         }

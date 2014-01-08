@@ -17,13 +17,15 @@ namespace CocktailApp
 {
     public partial class CocktailModif : PhoneApplicationPage
     {
-        private Cocktails cocktail = null;
+        private Cocktail cocktail = null;
+        private CocktailDataContext cocktailDB;
         BitmapImage bmp { get; set; }
         string sourceImageDuCocktail { get; set; }
         public CocktailModif()
         {
             InitializeComponent();
             buildCocktailAddBar();
+            cocktailDB = new CocktailDataContext("Data Source=isostore:/Cocktails.sdf"); 
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
@@ -35,15 +37,16 @@ namespace CocktailApp
             int cocktailId = -1;
             if (int.TryParse(parameter, out cocktailId))
             {
-                CocktailsRepository cocktailRepository = new CocktailsRepository();
-                cocktail = cocktailRepository.Find(cocktailId);
+                cocktail = (from c in cocktailDB.cocktails
+                            where c.CocktailID == cocktailId
+                            select c).First();
             }
 
             this.DataContext = cocktail;
-            if ( cocktail.difficulte.ToString() == "Facile") rdb_facile.IsChecked = true;
-            else if (cocktail.difficulte.ToString() == "Moyen") rdb_moyen.IsChecked = true;
-            else if (cocktail.difficulte.ToString() == "Difficile") rdb_difficile.IsChecked = true;
-
+            if ( cocktail.CocktailDifficulte.ToString() == "Facile") rdb_facile.IsChecked = true;
+            else if (cocktail.CocktailDifficulte.ToString() == "Moyen") rdb_moyen.IsChecked = true;
+            else if (cocktail.CocktailDifficulte.ToString() == "Difficile") rdb_difficile.IsChecked = true;
+            sourceImageDuCocktail = cocktail.CocktailImage;
         }
 
         private void buildCocktailAddBar()
@@ -76,13 +79,17 @@ namespace CocktailApp
             }
             else
             {
+                //Cocktail oldCocktail = cocktail;
                 string rdb = "Facile";
                 if (rdb_moyen.IsChecked == true) rdb = "Moyen";
                 if (rdb_difficile.IsChecked == true) rdb = "Difficile";
-                if ( sourceImageDuCocktail != null)
-                    CocktailsRepository.Edit(cocktail, txt_nom.Text, txt_description.Text, sourceImageDuCocktail, rdb, txt_comm.Text, txt_serv.Text, txt_deco.Text, txt_real.Text);
+                Cocktail nouveauCocktail;
+                if (sourceImageDuCocktail == null)
+                    nouveauCocktail = new Cocktail(txt_nom.Text, txt_description.Text, txt_comm.Text, "/Assets/img/no-image.png", rdb, null, txt_deco.Text, txt_real.Text, txt_serv.Text);
                 else
-                    CocktailsRepository.Edit(cocktail, txt_nom.Text, txt_description.Text, cocktail.img, rdb, txt_comm.Text, txt_serv.Text, txt_deco.Text, txt_real.Text);
+                    nouveauCocktail = new Cocktail(txt_nom.Text, txt_description.Text, txt_comm.Text, sourceImageDuCocktail, rdb, null, txt_deco.Text, txt_real.Text, txt_serv.Text);
+                nouveauCocktail.CocktailID = cocktail.CocktailID;
+                App.ViewModel.UpdateCocktail(nouveauCocktail);
                 NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
             }
         }
@@ -95,13 +102,13 @@ namespace CocktailApp
         private void txt_nom_LostFocus(object sender, RoutedEventArgs e)
         {
             if (txt_nom.Text == "")
-                txt_nom.Text = cocktail.nom;
+                txt_nom.Text = cocktail.CocktailNom;
         }
 
         private void txt_description_LostFocus(object sender, RoutedEventArgs e)
         {
             if (txt_description.Text == "")
-                txt_description.Text = cocktail.description;
+                txt_description.Text = cocktail.CocktailDescription;
         }
 
         /// <summary>

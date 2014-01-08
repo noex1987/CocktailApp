@@ -18,6 +18,7 @@ namespace CocktailApp
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        private CocktailDataContext mesCocktails;
         // Constructeur
         public MainPage()
         {
@@ -25,6 +26,8 @@ namespace CocktailApp
 
             // Data context and observable collection are children of the main page.
             this.DataContext = App.ViewModel;
+            mesCocktails = new CocktailDataContext("Data Source=isostore:/Cocktails.sdf");
+            
             buildCocktailListedBar();
             initialisationDonnees();
         }
@@ -38,7 +41,6 @@ namespace CocktailApp
 
         private void initialisationDonnees()
         {
-            CocktailDataContext mesCocktails = new CocktailDataContext("Data Source=isostore:/Cocktails.sdf");
             this.listeDeCocktails.ItemsSource =  mesCocktails.cocktails;
         }
 
@@ -55,12 +57,12 @@ namespace CocktailApp
             btnAdd.Text = "Nouveau";
             btnAdd.Click += new EventHandler(btnAdd_Click);
             ApplicationBar.Buttons.Add(btnAdd);
-
+            /*
             //Bouton Rechercher
             ApplicationBarIconButton btnSea = new ApplicationBarIconButton();
             btnSea.IconUri = new Uri("/Assets/Icons/Dark/feature.search.png", UriKind.Relative);
             btnSea.Text = "Rechercher";
-            ApplicationBar.Buttons.Add(btnSea);
+            ApplicationBar.Buttons.Add(btnSea);*/
         }
 
         private void btnAdd_Click(Object sender, EventArgs e)
@@ -72,23 +74,22 @@ namespace CocktailApp
         private void Fav_Img_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             int id = (int)(sender as Image).Tag;
-            CocktailsRepository repository = new CocktailsRepository();
-
-            Cocktails targetedItemData = repository.Find(id);          
-            targetedItemData.ChangeFav();
-            (sender as Image).Source = new BitmapImage(new Uri (targetedItemData.favoris,UriKind.Relative));
+            Cocktail leCocktail = mesCocktails.cocktails.Single(ID => ID.CocktailID == id);
+            leCocktail.ChangeFav();
+            (sender as Image).Source = new BitmapImage(new Uri(leCocktail.CocktailFavori, UriKind.Relative));
             
         }
 
         private void StackPanel_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             int id = (int)(sender as StackPanel).Tag;
-            CocktailsRepository repository = new CocktailsRepository();
-
-            Cocktails selectedItemData = repository.Find(id);
-            if (selectedItemData != null)
-                NavigationService.Navigate(new Uri(String.Format("/CocktailView.xaml?parameter={0}", selectedItemData.id), UriKind.Relative));
-                    
+            try
+            {
+                Cocktail leCocktail = mesCocktails.cocktails.Single(ID => ID.CocktailID == id);
+                NavigationService.Navigate(new Uri(String.Format("/CocktailView.xaml?parameter={0}", leCocktail.CocktailID), UriKind.Relative));
+            }
+            catch(Exception)
+            {}       
         }
     }
 }
