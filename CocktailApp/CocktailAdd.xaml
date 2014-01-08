@@ -21,42 +21,43 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contient le nom de l'application et le titre de la page-->
+        <Grid Grid.Row="0" Background="#FF111544" />
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,10">
             <TextBlock Text="Cocktail-App'" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="Ajouter" Margin="9,0,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#FFF75252"/>
+            <TextBlock Text="Ajouter" Margin="9,0,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#FFFCC900"/>
         </StackPanel>
 
         <!--ContentPanel - placez tout contenu supplémentaire ici-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,10" >
-            <ScrollViewer>
+        <Grid x:Name="ContentPanel" Grid.Row="1" Background="#FFB8B9D4"  >
+            <ScrollViewer Margin="12,10,12,10">
                 <StackPanel>
-                    <TextBlock x:Name="desc_txt_nom" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Nom du cocktail :" />
+                    <TextBlock x:Name="desc_txt_nom" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Nom du cocktail :" Foreground="Black" />
                     <TextBox x:Name="txt_nom" HorizontalAlignment="Left" Height="80" Margin="0,0,0,0" TextWrapping="Wrap" Text="Saisissez le nom de la recette" VerticalAlignment="Top" Width="456" GotFocus="txt_nom_GotFocus" LostFocus="txt_nom_LostFocus"/>
-                    <TextBlock x:Name="txt_error_nom" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="-4.98,0.151" Width="430" FontStyle="Italic" Foreground="#FFFF0006"/>
+                    <TextBlock x:Name="txt_error_nom" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="-4.98,0.151" Width="430" FontStyle="Italic" Foreground="#FFFF0006" />
 
                     <StackPanel x:Name="Panel_Img" Margin="0,0,0,40" Tap="Panel_Img_Tap" >
-                        <TextBlock x:Name="desc_imageCocktail" TextAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" TextWrapping="Wrap" Text="Touchez pour choisir une image à partir de votre téléphone" />
+                        <TextBlock x:Name="desc_imageCocktail" TextAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" TextWrapping="Wrap" Text="Touchez pour choisir une image à partir de votre téléphone" Foreground="Black" />
                         <Image Name="imageCocktail" Height="200" Source="/Assets/Img/no-image.png" HorizontalAlignment="Center"  Margin="0,20,0,0"/>
                     </StackPanel>
-                    <TextBlock x:Name="desc_txt_comm" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Commentaire personnel :" />
-                    <TextBox x:Name="txt_comm" HorizontalAlignment="Left" Margin="0,-5,0,0" TextWrapping="Wrap" Text="Saisissez un commentaire personnel" VerticalAlignment="Top" Width="456" Height="120" GotFocus="txt_comm_GotFocus" LostFocus="txt_comm_LostFocus"/>
+                    <TextBlock x:Name="desc_txt_comm" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Commentaire personnel :" Foreground="Black" />
+                    <TextBox x:Name="txt_comm" HorizontalAlignment="Left" Margin="0,-5,0,0" TextWrapping="Wrap" Text="Saisissez un commentaire personnel" VerticalAlignment="Top" Width="456" Height="120" GotFocus="txt_comm_GotFocus" LostFocus="txt_comm_LostFocus" />
 
-                    <TextBlock x:Name="desc_txt_real" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Réaliser dans..."  />
+                    <TextBlock x:Name="desc_txt_real" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Réaliser dans..." Foreground="Black"  />
                     <TextBox x:Name="txt_real" HorizontalAlignment="Left" Margin="0,-5,0,0" TextWrapping="Wrap" Text="Où faut-il préparer le cocktail ?" VerticalAlignment="Top" Width="456" GotFocus="txt_real_GotFocus" LostFocus="txt_real_LostFocus"/>
 
-                    <TextBlock x:Name="desc_txt_desc" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Recette :" GotFocus="txt_description_GotFocus" LostFocus="txt_description_LostFocus"/>
+                    <TextBlock x:Name="desc_txt_desc" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Recette :" GotFocus="txt_description_GotFocus" LostFocus="txt_description_LostFocus" Foreground="Black"/>
                     <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="350" Margin="0,-5,0,0" TextWrapping="Wrap" Text="Saisissez la totalité de la recette." VerticalAlignment="Top" Width="456" LostFocus="txt_description_LostFocus" GotFocus="txt_description_GotFocus"/>
 
-                    <TextBlock x:Name="desc_txt_serv" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Servir dans..." />
+                    <TextBlock x:Name="desc_txt_serv" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Servir dans..." Foreground="Black" />
                     <TextBox x:Name="txt_serv" HorizontalAlignment="Left" Margin="0,-5,0,0" TextWrapping="Wrap" Text="Où faut-il servir le cocktail ?" VerticalAlignment="Top" Width="456" GotFocus="txt_serv_GotFocus" LostFocus="txt_serv_LostFocus"/>
 
-                    <TextBlock x:Name="desc_txt_deco" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Décoration :" />
+                    <TextBlock x:Name="desc_txt_deco" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Décoration :" Foreground="Black" />
                     <TextBox x:Name="txt_deco" HorizontalAlignment="Left" Margin="0,-5,0,0" TextWrapping="Wrap" Text="Décrivez la décoration à ajouter." VerticalAlignment="Top" Width="456" GotFocus="txt_deco_GotFocus" LostFocus="txt_deco_LostFocus" />
 
                     <StackPanel Orientation="Horizontal" >
-                        <RadioButton x:Name="rdb_facile" Content="Facile"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                        <RadioButton x:Name="rdb_moyen" Content="Moyen" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" />
-                        <RadioButton x:Name="rdb_difficile" Content="Difficile" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" />
+                        <RadioButton x:Name="rdb_facile" Content="Facile"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="Black"/>
+                        <RadioButton x:Name="rdb_moyen" Content="Moyen" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="Black" />
+                        <RadioButton x:Name="rdb_difficile" Content="Difficile" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="Black" />
                     </StackPanel>
                     
                 </StackPanel>

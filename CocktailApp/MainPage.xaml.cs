@@ -12,6 +12,7 @@ using CocktailApp.mesClasses;
 using System.Windows.Media.Imaging;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
+using System.Windows.Media;
 
 
 namespace CocktailApp
@@ -44,9 +45,10 @@ namespace CocktailApp
 
         private void buildCocktailListedBar()
         {
-            ApplicationBar = new ApplicationBar();
-            ApplicationBar.Mode = ApplicationBarMode.Default;
+            ApplicationBar = new ApplicationBar();      
             ApplicationBar.Opacity = 1.0;
+            ApplicationBar.Mode = ApplicationBarMode.Minimized;
+            ApplicationBar.BackgroundColor = Color.FromArgb(255, 17, 21, 68);
             ApplicationBar.IsVisible = true;
             ApplicationBar.IsMenuEnabled = true;
             //Bouton Nouveau
