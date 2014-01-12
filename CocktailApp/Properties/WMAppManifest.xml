@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="fr-FR" />
-  <App xmlns="" ProductID="{5d1b3b6d-2e7f-4615-95c5-b3b5263e1f8b}" Title="CocktailApp" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="CocktailApp author" Description="Sample description" Publisher="CocktailApp" PublisherID="{fd0f2f71-7b24-46a0-ae6b-1a5d2b4ed484}">
+  <App xmlns="" ProductID="{5d1b3b6d-2e7f-4615-95c5-b3b5263e1f8b}" Title="CocktailApp" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Udolwa" Description="Avec CocktailApp, gérez vos recettes de cocktails de façon extrêmement simple ! Consultez, éditez ou ajoutez une recette de cocktail afin de toujours l'avoir à disposition ! Une dizaine de recette est disponible dès le lancement de l'application." Publisher="Udolwa" PublisherID="{fd0f2f71-7b24-46a0-ae6b-1a5d2b4ed484}">
     <IconPath IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileSmall.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />

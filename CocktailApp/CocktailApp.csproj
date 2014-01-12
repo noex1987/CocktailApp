@@ -241,7 +241,6 @@
     <Content Include="Assets\Img\cocktail_white_russian.png" />
     <Content Include="Assets\Img\no-image.png" />
     <Content Include="Assets\Icons\Dark\nofavs.png" />
-    <Content Include="SplashScreenImage.jpg" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
